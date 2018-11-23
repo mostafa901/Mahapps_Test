@@ -25,18 +25,36 @@ namespace IconPacks_Vs_mahapps
         public MainWindow()
         {
             InitializeComponent();
-           Loaded+= delegate { testmessage(); };
-            
+
+            MinHeight = 400;
+            MinWidth = 600;
+
+            PreviewMouseDoubleClick+= delegate
+            {
+                if(SizeToContent == SizeToContent.Manual)
+                {
+                    SizeToContent = SizeToContent.WidthAndHeight;
+                    Background = Brushes.DimGray;
+
+                }
+                else
+                {
+                    SizeToContent = SizeToContent.Manual;
+                    Background = Brushes.Green;
+                }
+            };
+
         }
 
-        public async Task<bool> testmessage()
+       
+
+       async private void Test_Click(object sender, RoutedEventArgs e)
         {
-          await  this.ShowMessageAsync("test Title", "test Message", MessageDialogStyle.AffirmativeAndNegative, new MetroDialogSettings()
-          {
-               AffirmativeButtonText="OK",
-               ColorScheme = MetroDialogColorScheme.Theme
-          });
-            return true;
-        } 
+           var prg =  await this.ShowProgressAsync($"Window Size Mode is:  {this.SizeToContent.ToString()}", "", true);
+            prg.Canceled += async delegate
+            {
+                await prg.CloseAsync();
+            };
+        }
     }
 }

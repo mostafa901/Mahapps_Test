@@ -7,7 +7,8 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:Iconpacks ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+                     
+        Title="MainWindow" Height="350" Width="525" Background="Green">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,10 +17,10 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Expander></Expander>
+
         <Iconpacks:PackIconModern Kind="AdobeAftereffects" Foreground="Red" Spin="True" SpinDuration="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox Height="20" Width="100" VerticalAlignment="Top" controls:TextBoxHelper.IsWaitingForData="True" />
-       
-        
+        <Grid Background="Wheat" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Content="Click Me" MinWidth="100" Click="Test_Click" Foreground="Black" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
     </Grid>
 </controls:MetroWindow>
