@@ -43,6 +43,7 @@ namespace IconPacks_Vs_mahapps
                     Background = Brushes.Green;
                 }
             };
+            Content = new uc_LiveChart_Test();
 
         }
 

@@ -8,14 +8,8 @@
         xmlns:Iconpacks ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
                      
-        Title="MainWindow" Height="350" Width="525" Background="Green">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Dictionary1.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+        Title="MainWindow" Height="350" Width="525" >
+    
     <Grid>
 
         <Iconpacks:PackIconModern Kind="AdobeAftereffects" Foreground="Red" Spin="True" SpinDuration="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
