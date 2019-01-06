@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="IconPacks_Vs_mahapps.uc_BaseControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IconPacks_Vs_mahapps"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="5">
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+
+                <TextBox 
+                        x:Name="tbx_search" 
+                        
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        controls:TextBoxHelper.Watermark="Search"
+                        controls:TextBoxHelper.TextButton="True"
+                        MinWidth="200" 
+                        Style="{DynamicResource ButtonCommandMetroTextBox}" >
+
+                </TextBox>
+
+
+
+            </StackPanel>
+        </Grid>
+
+        <local:uc_test_Flip/>
+
+        <controls:Flyout x:Name="flout" 
+                         Grid.Row="1"     
+                         TitleVisibility="Collapsed"
+                         Background="Transparent" 
+                         IsOpen="False"  
+                         HorizontalAlignment="Right"  
+                         Position="Bottom"
+                         Padding="5" 
+                         CloseButtonVisibility="Collapsed"
+                         VerticalAlignment="Bottom">
+
+            <local:uc_FloutContent   />
+
+        </controls:Flyout>
+
+    </Grid>
+</UserControl>

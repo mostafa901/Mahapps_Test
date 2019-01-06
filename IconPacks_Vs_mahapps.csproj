@@ -110,8 +110,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="uc_LiveChart_Test.xaml.cs">
-      <DependentUpon>uc_LiveChart_Test.xaml</DependentUpon>
+    <Compile Include="uc_BaseControl.xaml.cs">
+      <DependentUpon>uc_BaseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc_FloutContent.xaml.cs">
+      <DependentUpon>uc_FloutContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc_test_Flip.xaml.cs">
+      <DependentUpon>uc_test_Flip.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
@@ -129,7 +135,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="uc_LiveChart_Test.xaml">
+    <Page Include="uc_BaseControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc_FloutContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="uc_test_Flip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
