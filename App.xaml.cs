@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace IconPacks_Vs_mahapps
+namespace Test_Repo
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -20,24 +20,7 @@ namespace IconPacks_Vs_mahapps
     {
         public App()
         {
-            Charting.Configure(charting =>
-            {
-
-                charting
-                    .LearnPrimitiveAndDefaultTypes()
-                    .SetTheme(Themes.MaterialDesign)
-                    .UsingWpf()
-#if GEARED
-                    .UsingWpfGeared()
-#endif
-                    ;
-
-                
-
-                   
-                 
-
-            });
+           
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace IconPacks_Vs_mahapps
+namespace Test_Repo
 {
     /// <summary>
     /// Interaction logic for uc_test_Flip.xaml
