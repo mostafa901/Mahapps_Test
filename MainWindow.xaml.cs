@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using IconPacks_Vs_mahapps;
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,32 +31,19 @@ namespace Test_Repo
 		public MainWindow()
 		{
 			InitializeComponent();
-
-			var uc_base = new uc_BaseControl();
-			// MainGrid.Children.Add(uc_base);
-			// Grid.SetRow(uc_base, 1);
-
-			Content = uc_base;
-			PreviewMouseDoubleClick += delegate
-			 {
-				 uc_base.flout.IsOpen = !uc_base.flout.IsOpen;
-			 };
-
-			DataContext = new mc_test(); ;
-
-
-
+			 
 		}
 
-
-
-		async private void Test_Click(object sender, RoutedEventArgs e)
+		private void Test_Click(object sender, RoutedEventArgs e)
 		{
-			var prg = await this.ShowProgressAsync($"Window Size Mode is:  {this.SizeToContent.ToString()}", "", true);
-			prg.Canceled += async delegate
+			var thread = new Thread(new ThreadStart(() =>
 			{
-				await prg.CloseAsync();
-			};
+				var win = new ThreadWindow();
+				win.ShowDialog();
+			}));
+			thread.SetApartmentState(ApartmentState.STA);
+			thread.IsBackground = true;
+			thread.Start();
 		}
 	}
 
