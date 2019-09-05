@@ -16,6 +16,11 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>			
         </Grid.RowDefinitions>
-		
+		<Button Click="Test_Click"
+				Content="Test Thread Window"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				BorderBrush="White"
+				/>
 	</Grid>
 </controls:MetroWindow>
