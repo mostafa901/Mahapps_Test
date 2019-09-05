@@ -8,12 +8,14 @@
         xmlns:Iconpacks ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
                      
-        Title="MainWindow" Height="350" Width="525" >
+        Title="MainWindow" Height="350" Width="525" Background="#262626" 
+					  >
 
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>			
         </Grid.RowDefinitions>
-    </Grid>
+		
+	</Grid>
 </controls:MetroWindow>
