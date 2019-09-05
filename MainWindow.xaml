@@ -7,20 +7,18 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:Iconpacks ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-                     
-        Title="MainWindow" Height="350" Width="525" Background="#262626" 
-					  >
 
-    <Grid x:Name="MainGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>			
-        </Grid.RowDefinitions>
+        Title="MainWindow" Height="350" Width="525" Background="#262626">
+
+	<Grid x:Name="MainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
 		<Button Click="Test_Click"
 				Content="Test Thread Window"
 				HorizontalAlignment="Center"
 				VerticalAlignment="Center"
-				BorderBrush="White"
-				/>
+				BorderBrush="White" />
 	</Grid>
 </controls:MetroWindow>
