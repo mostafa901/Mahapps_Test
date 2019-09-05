@@ -2,24 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Test_Repo">
 
+	<ResourceDictionary.MergedDictionaries>
 
+		<!--ICONPACK RESOURCE DICTIONARY-->
 
-    <ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconOcticons.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
 
-
-        <!--ICONPACK RESOURCE DICTIONARY-->
-
-
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconOcticons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
-
-
-
-
-        <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+		<!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
 		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
 
 		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
@@ -28,110 +21,76 @@
 		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
 
-
 		<!-- Accent and AppTheme setting -->
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />
 
+		<!--My custom dictionary-->
+	</ResourceDictionary.MergedDictionaries>
 
-
-
-
-
-
-
-
-        <!--My custom dictionary-->
-
-      
-
-
-
-
-    </ResourceDictionary.MergedDictionaries>
-
-    <!-- Button styles -->
-    <!--<Style TargetType="Button" BasedOn="{StaticResource MetroCircleButtonStyle}">
-        <Setter Property="MinWidth" Value="50"/>
-        <Setter Property="MinHeight" Value="50"/>
-       
+	<!-- Button styles -->
+	<!--<Style TargetType="Button" BasedOn="{StaticResource MetroCircleButtonStyle}">
+        <Setter Property="MinWidth" Value="50" />
+        <Setter Property="MinHeight" Value="50" />
     </Style>-->
 
-    <Style TargetType="Button">
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="MinWidth" Value="45"/>
-        <Setter Property="MinHeight" Value="45"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Margin" Value="4"/>
+	<Style TargetType="Button">
+		<Setter Property="BorderBrush" Value="Bisque" />
+		<Setter Property="MinWidth" Value="45" />
+		<Setter Property="MinHeight" Value="45" />
+		<Setter Property="Background" Value="Gray" />
+		<Setter Property="Margin" Value="4" />
 
-        <!--Border-->
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
+		<!--Border-->
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
 
-                    <Border>
-                        <Border.Style>
-                            <Style TargetType="{x:Type Border}">
+					<Border>
+						<Border.Style>
+							<Style TargetType="{x:Type Border}">
 
+								<Style.Triggers>
+									<Trigger Property="IsMouseOver" Value="True">
+										<Setter Property="Background" Value="Cyan" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</Border.Style>
+						<Grid Background="Green">
+							<ContentPresenter></ContentPresenter>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Transparent"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Border.Style>
-                        <Grid Background="Transparent">
-                            <ContentPresenter></ContentPresenter>
-                        </Grid>
+	<!--Rectangle Styles-->
+	<Style x:Key="buttonrec" TargetType="Rectangle">
+		<Setter Property="Width" Value="40" />
+		<Setter Property="Height" Value="40" />
+		<Setter Property="Fill" Value="Gray" />
 
-                    </Border>
-
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-    </Style>
-
-
-
-
-    <!--Rectangle Styles-->
-    <Style x:Key="buttonrec" TargetType="Rectangle" >
-        <Setter Property="Width" Value="40"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Fill" Value="Gray"/>
-
-
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Fill" Value="White"  />
-                <Setter Property="Rectangle.Effect">
-                    <Setter.Value>
-                        <DropShadowEffect Color="LightGray" Direction="320" ShadowDepth="2" BlurRadius="1" 
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="true">
+				<Setter Property="Fill" Value="White" />
+				<Setter Property="Rectangle.Effect">
+					<Setter.Value>
+						<DropShadowEffect Color="LightGray" Direction="320" ShadowDepth="2" BlurRadius="1"
                                           Opacity="1" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
 
-                    </Setter.Value>
+	<Style x:Key="staticbuttonrec" TargetType="Rectangle" BasedOn="{StaticResource buttonrec}">
 
-                </Setter>
-
-            </Trigger>
-        </Style.Triggers>
-
-    </Style>
-
-    <Style x:Key="staticbuttonrec" TargetType="Rectangle" BasedOn="{StaticResource buttonrec}" >
-
-        <Setter Property="Fill" Value="White"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Fill" Value="White"  />
-
-
-            </Trigger>
-        </Style.Triggers>
-
-    </Style>
-
-
-
+		<Setter Property="Fill" Value="White" />
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="true">
+				<Setter Property="Fill" Value="White" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
 </ResourceDictionary>
