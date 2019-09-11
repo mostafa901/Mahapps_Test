@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Test_Repo"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:Iconpacks ="http://metro.mahapps.com/winfx/xaml/iconpacks"
+		xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+		Dialog:DialogParticipation.Register="{Binding}"
         mc:Ignorable="d"
-
         Title="MainWindow" Height="350" Width="525" Background="#262626">
 
 	<Grid x:Name="MainGrid">
