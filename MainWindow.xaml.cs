@@ -7,13 +7,14 @@ using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Test_Repo
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : MetroWindow
+	public partial class MainWindow: MetroWindow
 	{
 
 		public MainWindow()
@@ -26,11 +27,11 @@ namespace Test_Repo
 
 		async private void Test_Click(object sender, RoutedEventArgs e)
 		{
-		await	mv.StartNewThread();
+			await mv.StartNewThread();
 		}
 	}
 
-	public class mc_test : INotifyPropertyChanged
+	public class mc_test: INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -78,16 +79,24 @@ namespace Test_Repo
 
 		async public Task StartNewThread()
 		{
+			Dispatcher externaldisp = null;
 			var thread = new Thread(new ThreadStart(() =>
 			{
 				var win = new ThreadWindow();
+				externaldisp = Dispatcher.CurrentDispatcher;
 				win.ShowDialog();
 			}));
 			thread.SetApartmentState(ApartmentState.STA);
 			thread.IsBackground = true;
 			thread.Start();
 
+			await Task.Delay(1000); //give time to open the above window
+
 			//the below statement works fine if the above thread did not start
+			//Failed
+			await externaldisp.BeginInvoke(DispatcherPriority.Send, new Action(async () => await instance.ShowMessageAsync(this, "Test", "Message")));
+			
+			//Failed
 			await instance.ShowMessageAsync(this, "Test", "Message");
 
 		}
