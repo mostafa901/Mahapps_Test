@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IconPacks_Vs_mahapps</RootNamespace>
     <AssemblyName>IconPacks_Vs_mahapps</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -49,9 +49,6 @@
     </Reference>
     <Reference Include="LiveCharts.Wpf">
       <HintPath>..\..\..\Downloaded Library\Source\Live-Charts-1.0\src\samples\Samples.Wpf\bin\Debug\LiveCharts.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MahApps.Metro.2.0.0-alpha0480\lib\net47\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro.IconPacks, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MahApps.Metro.IconPacks.3.0.0-alpha0088\lib\net45\MahApps.Metro.IconPacks.dll</HintPath>
@@ -184,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Downloaded Library\Source\MahApps.Metro\src\MahApps.Metro\MahApps.Metro.csproj">
+      <Project>{f6432f90-04c2-42b9-992b-cd828729976b}</Project>
+      <Name>MahApps.Metro</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.5\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.5\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />
