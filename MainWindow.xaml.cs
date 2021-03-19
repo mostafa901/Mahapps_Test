@@ -14,23 +14,25 @@ namespace Test_Repo
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow: MetroWindow
     {
+        Dispatcher mydisp = null;
         public MainWindow()
         {
             InitializeComponent();
             DataContext = mv = new ViewModel(DialogCoordinator.Instance);
+            mydisp = Dispatcher.CurrentDispatcher;
         }
 
         public ViewModel mv { get; private set; }
 
-        private void Test_Click(object sender, RoutedEventArgs e)
+        async private void Test_Click(object sender, RoutedEventArgs e)
         {
-            mv.StartNewThread();
+            await mv.StartNewThread(mydisp);
         }
     }
 
-    public class mc_test : INotifyPropertyChanged
+    public class mc_test: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,20 +71,19 @@ namespace Test_Repo
 
     public class ViewModel
     {
-        private IDialogCoordinator _dilaogCoordinator;
+        private IDialogCoordinator instance;
 
         public ViewModel(IDialogCoordinator instance)
         {
-            this._dilaogCoordinator = instance;
+            this.instance = instance;
         }
 
-        async public Task StartNewThread()
+        async public Task StartNewThread(Dispatcher mydisp)
         {
-            Dispatcher externaldisp = null;
+             
             var thread = new Thread(new ThreadStart(() =>
             {
-                var win = new ThreadWindow();
-                externaldisp = win.Dispatcher;
+                var win = new ThreadWindow();                 
                 win.ShowDialog();
             }));
             thread.SetApartmentState(ApartmentState.STA);
@@ -92,13 +93,8 @@ namespace Test_Repo
             await Task.Delay(1000); //give time to open the above window
 
             //the below statement works fine if the above thread did not start
-            //Failed
-            await externaldisp.BeginInvoke(DispatcherPriority.Background, new Action(async () => await _dilaogCoordinator.ShowMessageAsync(this, "Test", "Message")));
-
-            //Failed
-            //await instance.ShowMessageAsync(this, "Test", "Message");
-
-            //test before branch1
+            //Failed 
+          await  mydisp.BeginInvoke(new Action(async()=> { await instance.ShowMessageAsync(this, "Test", "Message"); }), DispatcherPriority.Send);
         }
     }
 }

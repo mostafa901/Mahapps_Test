@@ -3,11 +3,11 @@
 namespace Test_Repo
 {
     /// <summary>
-    /// Interaction logic for uc_test_Flip.xaml
+    /// Interaction logic for uc_BaseControl.xaml
     /// </summary>
-    public partial class uc_test_Flip: UserControl
+    public partial class uc_BaseControl: UserControl
     {
-        public uc_test_Flip()
+        public uc_BaseControl()
         {
             InitializeComponent();
         }
